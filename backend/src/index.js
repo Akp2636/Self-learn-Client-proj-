@@ -11,13 +11,9 @@ const app = express();
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
 app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:3001",
-    process.env.FRONTEND_URL,
-    "https://self-learn-academy.vercel.app" // 👈 apna actual frontend URL
-  ],
-  credentials: true,
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 app.use(express.json({ limit: '10mb' }));
